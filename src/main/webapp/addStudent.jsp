@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>新增学生</title>
@@ -17,51 +18,50 @@
 <div class="container">
     <div class="row">
         <div class="page-header">
-            <h1>学生信息管理系统</h1>
+            <h1>学生信息管理系统<small>新增学生</small></h1>
         </div>
     </div>
     <div class="row">
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/addStudent">
             <div class="form-group">
                 <label for="regNo" class="col-sm-2 control-label">学号</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="regNo" name="regNo" placeholder="请输入学号">
                 </div>
             </div>
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">姓名</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
                 </div>
             </div>
             <div class="form-group">
                 <label for="sex" class="col-sm-2 control-label">性别</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="sex" name="sex" placeholder="请输入性别">
                 </div>
             </div>
             <div class="form-group">
                 <label for="age" class="col-sm-2 control-label">年龄</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="age" name="age" placeholder="请输入性别">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="age" name="age" placeholder="请输入年龄">
                 </div>
             </div>
             <div class="form-group">
-                <label for="grade" class="col-sm-2 control-label">性别</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="grade" name="grade" placeholder="请输入性别">
+                <label for="grade" class="col-sm-2 control-label">年级</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="grade" name="grade" placeholder="请输入年级">
                 </div>
             </div>
             <div class="form-group">
-                <label for="sex" class="col-sm-2 control-label">性别</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="sex" name="sex" placeholder="请输入性别">
+                <label for="major" class="col-sm-2 control-label">专业</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="major" name="major" placeholder="请输入专业">
                 </div>
             </div>
             <div class="form-group">
-                <label for="sex" class="col-sm-2 control-label">性别</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="sex" name="sex" placeholder="请输入性别">
+                <div class="col-dm-2">
+                    <input class="btn btn-primary col-md-2 col-md-offset-4" type="submit" value="提交">
                 </div>
             </div>
         </form>

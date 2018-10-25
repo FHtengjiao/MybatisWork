@@ -22,9 +22,29 @@ public class StudentDao {
         return students;
     }
 
-    public static void main(String[] args) {
-        SqlSessionFactoryUtils.initSqlSessionFactory();
-        List<Student> students = new StudentDao().getAllStudents();
-        System.out.println(students.size());
+    public Student getOneStudent(Student student) {
+        SqlSession session = SqlSessionFactoryUtils.getFactory().openSession();
+        Student s = null;
+        try {
+            s = session.selectOne("findStudents", student);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return s;
+    }
+
+    public Student addStudent(Student student) {
+        SqlSession session = SqlSessionFactoryUtils.getFactory().openSession();
+        try {
+            session.insert("addStudent", student);
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return student;
     }
 }

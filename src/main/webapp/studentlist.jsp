@@ -30,6 +30,7 @@
                 <th>年龄</th>
                 <th>年级</th>
                 <th>专业</th>
+                <th>操作</th>
             </tr>
             <c:forEach var="student" items="${requestScope.list}">
             <tr>
@@ -40,6 +41,7 @@
                 <td>${student.age}</td>
                 <td>${student.grade}</td>
                 <td>${student.major}</td>
+                <td><a class="btn btn-primary" href="${pageContext.request.contextPath}/showStudent?id=${student.id}" role="button">查看</a></td>
             </tr>
             </c:forEach>
         </table>

@@ -5,6 +5,14 @@
 <mapper namespace="com.xtj.entity.Student">
     <select id="findStudents" resultType="com.xtj.entity.Student">
         SELECT * FROM student
+        <if test="id != null">
+            WHERE id = #{id}
+        </if>
     </select>
+
+    <insert id="addStudent" useGeneratedKeys="true" keyProperty="id">
+        INSERT student(reg_no, name, sex, age, grade, major)
+        VALUES(#{regNo}, #{name}, #{sex}, #{age}, #{grade}, #{major})
+    </insert>
 
 </mapper>
