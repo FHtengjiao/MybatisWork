@@ -20,8 +20,6 @@ public class FindStudentsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StudentDao studentDao =  new StudentDao();
         List<Student> students = studentDao.getAllStudents();
-        System.out.println(students);
-        System.out.println("你好");
         request.setAttribute("list", students);
         request.getRequestDispatcher("studentlist.jsp").forward(request, response);
     }

@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="page-header">
-            <h1>学生信息管理系统</h1>
+            <h1>学生信息管理系统<a class="btn btn-primary pull-right" href="${pageContext.request.contextPath}/addStudent.jsp" role="button">新增用户</a></h1>
         </div>
     </div>
     <div class="row">
