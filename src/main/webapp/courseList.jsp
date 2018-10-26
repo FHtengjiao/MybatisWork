@@ -41,7 +41,14 @@
                 <td>${student.age}</td>
                 <td>${student.grade}</td>
                 <td>${student.major}</td>
-                <td><a class="btn btn-primary" href="${pageContext.request.contextPath}/showStudent?id=${student.id}" role="button">查看</a></td>
+                <td>
+                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/showStudent?id=${student.id}&type=show" role="button">查看</a>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/showStudent?id=${student.id}" role="button">修改</a>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/deleteStudent?id=${student.id}" role="button">删除</a>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/showCourse" role="button">查看课程</a>
+                    </div>
+                </td>
             </tr>
             </c:forEach>
         </table>

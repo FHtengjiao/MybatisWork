@@ -9,8 +9,21 @@ public class Student {
     private String grade;
     private String major;
 
+    public Student(Long id) {
+        this.id = id;
+    }
+
     public Student(Long id, Long regNo, String name, String sex, Integer age, String grade, String major) {
         this.id = id;
+        this.regNo = regNo;
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.grade = grade;
+        this.major = major;
+    }
+
+    public Student(Long regNo, String name, String sex, Integer age, String grade, String major) {
         this.regNo = regNo;
         this.name = name;
         this.sex = sex;
