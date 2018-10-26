@@ -47,4 +47,58 @@ public class StudentDao {
         }
         return student;
     }
+
+    public Student updateStudent(Student student) {
+        SqlSession session = SqlSessionFactoryUtils.getFactory().openSession();
+        try {
+            session.update("updateStudent", student);
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return student;
+    }
+
+    public void deleteStudent(Student student) {
+        SqlSession session = SqlSessionFactoryUtils.getFactory().openSession();
+        try {
+            session.delete("deleteStudent", student);
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

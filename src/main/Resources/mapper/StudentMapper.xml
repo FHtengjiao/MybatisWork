@@ -3,16 +3,46 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xtj.entity.Student">
-    <select id="findStudents" resultType="com.xtj.entity.Student">
+    <select id="findStudents" resultMap="forStudent">
         SELECT * FROM student
         <if test="id != null">
             WHERE id = #{id}
         </if>
     </select>
+    
+    <resultMap id="forStudent" type="com.xtj.entity.Student">
+        <id property="id" column="id"></id>
+        <collection property="courses" column="major" ofType="com.xtj.entity.Course" select="getCourse"></collection>
+    </resultMap>
+
+    <select id="getCourse" resultType="com.xtj.entity.Course">
+        SELECT * FROM course WHERE majorname = #{major}
+    </select>
+
+    <sql id="studentSql">
+        reg_no, name, sex, age, grade, major
+    </sql>
 
     <insert id="addStudent" useGeneratedKeys="true" keyProperty="id">
-        INSERT student(reg_no, name, sex, age, grade, major)
+        INSERT student( <include refid="studentSql"></include> )
         VALUES(#{regNo}, #{name}, #{sex}, #{age}, #{grade}, #{major})
     </insert>
+
+    <update id="updateStudent">
+        UPDATE student
+        <set>
+            <if test="regNo != null">reg_no = #{regNo},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="grade != null">grade = #{grade},</if>
+            <if test="major != null">major = #{major}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteStudent">
+        DELETE FROM student where id = #{id}
+    </delete>
 
 </mapper>

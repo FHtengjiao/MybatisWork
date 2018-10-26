@@ -43,6 +43,6 @@ public class AddStudentServlet extends HttpServlet {
         Student s = studentDao.addStudent(student);
 
         //显示添加的学生
-        response.sendRedirect("/showStudent?id="+s.getId());
+        response.sendRedirect("/showStudent?id="+s.getId()+"&type=show");
     }
 }

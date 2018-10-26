@@ -19,51 +19,51 @@
 <div class="container">
     <div class="row">
         <div class="page-header">
-            <h1>学生信息管理系统<small>查看学生</small></h1>
+            <h1>学生信息管理系统<small>修改学生</small></h1>
         </div>
     </div>
     <div class="row">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="${pageContext.request.contextPath}/updateStudent" method="post">
+            <input type="hidden" name="id" value="${student.id}">
             <div class="form-group">
-                <label class="col-sm-2 control-label">编号</label>
+                <label for="regNo" class="col-sm-2 control-label">学号</label>
                 <div class="col-sm-6">
-                    <p class="form-control-static">${student.id}</p>
+                    <input type="text" class="form-control" id="regNo" name="regNo" value="${student.regNo}" placeholder="请输入学号">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">学号</label>
+                <label for="name" class="col-sm-2 control-label">姓名</label>
                 <div class="col-sm-6">
-                    <p class="form-control-static">${student.regNo}</p>
+                    <input type="text" class="form-control" id="name" name="name" value="${student.name}" placeholder="请输入姓名">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">姓名</label>
+                <label for="sex" class="col-sm-2 control-label">性别</label>
                 <div class="col-sm-6">
-                    <p class="form-control-static">${student.name}</p>
+                    <input type="text" class="form-control" id="sex" name="sex" value="${student.sex}" placeholder="请输入性别">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">性别</label>
+                <label for="age" class="col-sm-2 control-label">年龄</label>
                 <div class="col-sm-6">
-                    <p class="form-control-static">${student.sex}</p>
+                    <input type="text" class="form-control" id="age" name="age" value="${student.age}" placeholder="请输入年龄">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">年龄</label>
+                <label for="grade" class="col-sm-2 control-label">年级</label>
                 <div class="col-sm-6">
-                    <p class="form-control-static">${student.age}</p>
+                    <input type="text" class="form-control" id="grade" name="grade" value="${student.grade}" placeholder="请输入年级">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">年级</label>
+                <label for="major" class="col-sm-2 control-label">专业</label>
                 <div class="col-sm-6">
-                    <p class="form-control-static">${student.grade}</p>
+                    <input type="text" class="form-control" id="major" name="major" value="${student.major}" placeholder="请输入专业">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">专业</label>
-                <div class="col-sm-6">
-                    <p class="form-control-static">${student.major}</p>
+                <div class="col-dm-2">
+                    <input class="btn btn-primary col-md-2 col-md-offset-4" type="submit" value="提交">
                 </div>
             </div>
         </form>

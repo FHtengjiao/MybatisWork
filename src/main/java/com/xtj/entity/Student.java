@@ -1,5 +1,7 @@
 package com.xtj.entity;
 
+import java.util.List;
+
 public class Student {
     private Long id;
     private Long regNo;
@@ -8,6 +10,7 @@ public class Student {
     private Integer age;
     private String grade;
     private String major;
+    private List<Course> courses;
 
     public Student(Long id) {
         this.id = id;
@@ -30,6 +33,14 @@ public class Student {
         this.age = age;
         this.grade = grade;
         this.major = major;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
     public Long getId() {

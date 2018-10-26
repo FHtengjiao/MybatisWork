@@ -17,38 +17,27 @@
 <div class="container">
     <div class="row">
         <div class="page-header">
-            <h1>学生信息管理系统<a class="btn btn-primary pull-right" href="${pageContext.request.contextPath}/addStudent.jsp" role="button">新增用户</a></h1>
+            <h1>学生信息管理系统<small>${student.name}的课程</small></h1>
         </div>
     </div>
     <div class="row">
         <table class="table table-striped table-bordered">
             <tr>
                 <th>编号</th>
-                <th>学号</th>
-                <th>姓名</th>
-                <th>性别</th>
-                <th>年龄</th>
-                <th>年级</th>
-                <th>专业</th>
-                <th>操作</th>
+                <th>课程编号</th>
+                <th>专业名称</th>
+                <th>课程名称</th>
+                <th>课程时长</th>
+                <th>讲授教师</th>
             </tr>
-            <c:forEach var="student" items="${requestScope.list}">
+            <c:forEach var="course" items="${student.courses}">
             <tr>
-                <td>${student.id}</td>
-                <td>${student.regNo}</td>
-                <td>${student.name}</td>
-                <td>${student.sex}</td>
-                <td>${student.age}</td>
-                <td>${student.grade}</td>
-                <td>${student.major}</td>
-                <td>
-                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/showStudent?id=${student.id}&type=show" role="button">查看</a>
-                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/showStudent?id=${student.id}" role="button">修改</a>
-                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/deleteStudent?id=${student.id}" role="button">删除</a>
-                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/showCourse" role="button">查看课程</a>
-                    </div>
-                </td>
+                <td>${course.id}</td>
+                <td>${course.courseId}</td>
+                <td>${course.majorName}</td>
+                <td>${course.courseName}</td>
+                <td>${course.courseTime}</td>
+                <td>${course.courseTeacher}</td>
             </tr>
             </c:forEach>
         </table>
